@@ -1,0 +1,222 @@
+{
+  "Navbar": {
+    "general": "General",
+    "mySpace": "My Space",
+    "support": "Support",
+    "accountk": "Account",
+    "home": "Home",
+    "products": "Products",
+    "contact": "Contact",
+    "activity": "Activity",
+    "privacy": "Privacy",
+    "help": "Help",
+    "account": "Account",
+    "logout": "Logout"
+  },
+  "Landing": {
+    "title": "Welcome to Our Online Store",
+    "description": "Discover the best products at unbeatable prices.",
+    "shopNow": "Shop Now",
+    "featuredProducts": "Featured Products",
+    "viewAll": "View All",
+    "categories": "Categories",
+    "aboutUs": "About Us",
+    "contactUs": "Contact Us",
+    "bestSeller": "Best Seller",
+    "bestSellerDetails": "Products",
+    "viewDetails": "View Details",
+    "loadingMore": "Loading more...",
+    "sale": "Sale",
+    "addToCart": "Add to Cart",
+    "wishlist": " Add to Wishlist"
+  },
+  "ProductPage": {
+    "title": "Categories",
+    "home": "Home",
+    "addToCart": "Add to Cart",
+    "buyNow": "Buy Now",
+    "productDetails": "Product Details",
+    "reviews": "Reviews",
+    "relatedProducts": "Related Products",
+    "viewDetails": "View Product Details",
+    "wishlist": "Add to Wishlist",
+    "sale": "Sale"
+  },
+  "CartPage": {
+    "title": "Your Cart",
+    "home": "Home",
+    "emptyCart": "Your cart is empty.",
+    "continueShopping": "Continue Shopping",
+    "checkout": "Checkout",
+    "total": "Total",
+    "removeItem": "Remove Item",
+    "orderSummary": "Order Summary",
+    "subtotal": "Subtotal",
+    "discount": "Discount (-20%)",
+    "deliveryFee": "Delivery Fee",
+    "promoPlaceholder": "Add promo code",
+    "apply": "Apply",
+    "goToCheckout": "Go to Checkout",
+    "size": "Size",
+    "color": "Color"
+  },
+  "CheckoutPage": {
+    "title": "Checkout",
+    "Home": "Home",
+    "billingDetails": "Billing Details",
+    "shippingDetails": "Shipping Details",
+    "paymentMethod": "Payment Method",
+    "placeOrder": "Place Order",
+    "orderSummary": "Order Summary",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "address": "Address",
+    "area": "Area (optional)",
+    "city": "City",
+    "covernorat": "Governorate",
+    "phone": "Phone",
+    "yourOrder": "Your Order",
+    "product": "Product",
+    "shipping": "Shipping",
+    "enterAddress": "Enter your address to view shipping options.",
+    "total": "Total",
+    "confirmDeposit": "Please send a deposit to confirm the order on this number ( 01023456789 )",
+    "sendTransfer": "Please send a photo of the transfer via",
+    "confirmOrder": "Confirm Order",
+    "whatsapp": "Whatsapp",
+    "instagram": "Instagram",
+    "options": {
+      "Cairo": "Cairo",
+      "Mans": "Mans",
+      "Alex": "Alex"
+    }
+  },
+  "LoginPage": {
+    "title": "Login",
+    "email": "Email",
+    "password": "Password",
+    "rememberMe": "Remember Me",
+    "forgotPassword": "Forgot Password?",
+    "loginButton": "Login",
+    "noAccount": "Don't have an account?",
+    "registerHere": "Register here"
+  },
+  "PasswordReset": {
+    "sendCodeTitle": "Reset Password",
+    "sendCodeDescription": "Enter your email to receive a verification code.",
+    "sendCodeButton": "Send Code",
+    "verifyCodeTitle": "Verify Code",
+    "verifyCodeDescription": "Enter the 4-digit code sent to your email.",
+    "verifyButton": "Verify",
+    "changePasswordTitle": "Change Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "changePasswordButton": "Change Password",
+    "backToLogin": "Back to Login"
+  },
+  "RegisterPage": {
+    "title": "Register",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "registerButton": "Register",
+    "alreadyHaveAccount": "Already have an account?",
+    "loginHere": "Login here"
+  },
+  "ProfilePage": {
+    "title": "My Profile",
+    "editProfile": "Edit Profile",
+    "orderHistory": "Order History",
+    "wishlist": "Wishlist",
+    "logout": "Logout"
+  },
+  "SupportPage": {
+    "title": "Support",
+    "faq": "Frequently Asked Questions",
+    "contactSupport": "Contact Support",
+    "submitTicket": "Submit Ticket",
+    "liveChat": "Live Chat"
+  },
+  "PrivacyPage": {
+    "title": "Privacy Policy",
+    "description": "Your privacy matters to us. Read our policy to learn how we protect your data."
+  },
+  "ContactPage": {
+    "title": "Contact Us",
+    "description": "For any inquiries or assistance, the Yasmin Magdy team is always ready to help you.",
+    "form": {
+      "name": "Your Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Your Message",
+      "submit": "Send",
+      "viewDetails": "View Product Details",
+      "addToCart": "Add to Cart",
+      "wishlist": "Add to Wishlist",
+      "viewAll": "View All",
+      "sale": "Sale",
+      "placeholder": {
+        "name": "Name",
+        "email": "example@gmail.com",
+        "subject": "Subject",
+        "message": "Hi! I’d like to inquire about..."
+      }
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "contact": "Contact Us"
+    },
+    "info": {
+      "title": "Contact Information",
+      "text": "We are available for any inquiry.",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Working Hours",
+      "weekdays": "Monday - Friday",
+      "weekend": "Saturday - Sunday"
+    }
+  },
+  "Footer": {
+    "shop": "Shop",
+    "description": "Our store offers you the finest cosmetics and high-quality perfumes that give you a radiant look and complete confidence. We are committed to providing carefully selected products to meet all your daily needs and exceed your expectations.",
+    "customerService": "Customer Service",
+    "followUs": "Follow us",
+    "viewTrends": "View the latest makeup trends and tips!",
+    "eye": "Eye",
+    "face": "Face",
+    "body": "Body",
+    "lips": "Lips",
+    "perfume": "Perfume",
+    "about": "About",
+    "contact": "Contact",
+    "privacyPolicy": "Privacy Policy",
+    "refundPolicy": "Refund Policy",
+    "shippingPolicy": "Shipping Policy",
+    "copyright": "© Yasmin Magdy 2025 | All Rights Reserved."
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "products": "Products",
+    "productDetails": "Product Details",
+    "cart": "Cart",
+    "checkout": "Checkout",
+    "contact": "Contact Us",
+    "support": "Support",
+    "profile": "Profile",
+    "login": "Login",
+    "register": "Register"
+  },
+  "Activity": {
+    "links": {
+      "Home": "Home",
+      "Help": "Help"
+    }
+  },
+  "Privacy": {
+    "links": {
+      "Home": "Home",
+      "Priv": "Privacy"
+    }
+  }
+}

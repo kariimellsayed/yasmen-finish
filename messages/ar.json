@@ -1,0 +1,203 @@
+{
+  "Navbar": {
+    "general": "عام",
+    "mySpace": "مساحتي",
+    "support": "الدعم",
+    "accountk": "الحساب",
+    "home": "الرئيسية",
+    "products": "المنتجات",
+    "contact": "تواصل",
+    "activity": "النشاط",
+    "privacy": "الخصوصية",
+    "help": "مساعدة",
+    "account": "الحساب",
+    "logout": "تسجيل الخروج"
+  },
+  "Landing": {
+    "title": "مرحبًا بكم في متجرنا الإلكتروني",
+    "description": "اكتشف أفضل المنتجات بأسعار لا تقارن.",
+    "shopNow": "تسوق الآن",
+    "featuredProducts": "المنتجات المميزة",
+    "viewAll": "عرض الكل",
+    "categories": "الفئات",
+    "aboutUs": "من نحن",
+    "contactUs": "اتصل بنا",
+    "bestSeller": "الأكثر مبيعًا",
+    "bestSellerDetails": " المنتجات ",
+    "viewDetails": "مشاهدة التفاصيل",
+    "loadingMore": "جارٍ تحميل المزيد...",
+    "sale": "خصم",
+    "addToCart": "أضف إلى السلة",
+    "wishlist": "أضف إلى المفضلة"
+  },
+  "ProductPage": {
+    "title": "تفاصيل المنتج",
+    "addToCart": "أضف إلى السلة",
+    "buyNow": "اشتري الآن",
+    "productDetails": "تفاصيل المنتج",
+    "reviews": "المراجعات",
+    "relatedProducts": "منتجات ذات صلة",
+    "viewDetails": "مشاهدة تفاصيل المنتج",
+    "wishlist": "أضف إلى المفضلة",
+    "sale": "خصم"
+  },
+  "CartPage": {
+    "title": "سلة المشتريات",
+    "home": "الصفحة الرئيسية",
+    "emptyCart": "سلة المشتريات فارغة.",
+    "continueShopping": "استمر بالتسوق",
+    "checkout": "الدفع",
+    "total": "الإجمالي",
+    "removeItem": "حذف العنصر",
+    "orderSummary": "ملخص الطلب",
+    "subtotal": "الإجمالي الفرعي",
+    "discount": "خصم (-20%)",
+    "deliveryFee": "رسوم التوصيل",
+    "promoPlaceholder": "أدخل كود الخصم",
+    "apply": "تطبيق",
+    "goToCheckout": "الانتقال إلى الدفع",
+    "size": "المقاس",
+    "color": "اللون"
+  },
+  "CheckoutPage": {
+    "title": "إتمام الطلب",
+    "Home": "الصفحة الرئيسية",
+    "billingDetails": "تفاصيل الفاتورة",
+    "shippingDetails": "تفاصيل الشحن",
+    "paymentMethod": "طريقة الدفع",
+    "placeOrder": "إرسال الطلب",
+    "orderSummary": "ملخص الطلب",
+    "firstName": "الاسم الأول",
+    "lastName": "اسم العائلة",
+    "address": "العنوان",
+    "area": "المنطقة (اختياري)",
+    "city": "المدينة",
+    "covernorat": "المحافظة",
+    "phone": "رقم الهاتف",
+    "yourOrder": "طلبك",
+    "product": "المنتج",
+    "shipping": "الشحن",
+    "enterAddress": "أدخل عنوانك لعرض خيارات الشحن.",
+    "total": "الإجمالي",
+    "confirmDeposit": "يرجى إرسال مبلغ تأكيد الطلب على هذا الرقم (01023456789)",
+    "sendTransfer": "يرجى إرسال صورة التحويل عبر",
+    "confirmOrder": "تأكيد الطلب",
+    "whatsapp": "واتساب",
+    "instagram": "إنستجرام",
+    "options": {
+      "Cairo": "القاهرة",
+      "Mans": "المنصورة",
+      "Alex": "الإسكندرية"
+    }
+  },
+  "LoginPage": {
+    "title": "تسجيل الدخول",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "rememberMe": "تذكرني",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "loginButton": "تسجيل الدخول",
+    "noAccount": "ليس لديك حساب؟",
+    "registerHere": "سجل هنا"
+  },
+  "PasswordReset": {
+    "sendCodeTitle": "إعادة تعيين كلمة المرور",
+    "sendCodeDescription": "أدخل بريدك الإلكتروني لاستلام رمز التحقق.",
+    "sendCodeButton": "إرسال الرمز",
+    "verifyCodeTitle": "التحقق من الرمز",
+    "verifyCodeDescription": "أدخل الرمز المكون من 4 أرقام المرسل إلى بريدك الإلكتروني.",
+    "verifyButton": "تحقق",
+    "changePasswordTitle": "تغيير كلمة المرور",
+    "newPassword": "كلمة المرور الجديدة",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "changePasswordButton": "تغيير كلمة المرور",
+    "backToLogin": "العودة لتسجيل الدخول"
+  },
+  "RegisterPage": {
+    "title": "تسجيل",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "registerButton": "تسجيل",
+    "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
+    "loginHere": "تسجيل الدخول هنا"
+  },
+  "ProfilePage": {
+    "title": "ملفي الشخصي",
+    "editProfile": "تعديل الملف",
+    "orderHistory": "سجل الطلبات",
+    "wishlist": "قائمة الرغبات",
+    "logout": "تسجيل الخروج"
+  },
+  "SupportPage": {
+    "title": "الدعم",
+    "faq": "الأسئلة الشائعة",
+    "contactSupport": "تواصل مع الدعم",
+    "submitTicket": "إرسال تذكرة",
+    "liveChat": "الدردشة المباشرة"
+  },
+  "PrivacyPage": {
+    "title": "سياسة الخصوصية",
+    "description": "خصوصيتك تهمنا. اقرأ سياستنا لمعرفة كيف نحمي بياناتك."
+  },
+  "ContactPage": {
+    "title": "تواصل معنا",
+    "description": "لأي استفسار أو مساعدة، فريق ياسمين مجدي جاهز دائمًا لخدمتك.",
+    "form": {
+      "name": "اسمك",
+      "email": "البريد الإلكتروني",
+      "subject": "الموضوع",
+      "message": "رسالتك",
+      "submit": "إرسال",
+      "viewDetails": "مشاهدة تفاصيل المنتج",
+      "addToCart": "أضف إلى السلة",
+      "wishlist": "أضف إلى المفضلة",
+      "viewAll": "عرض الكل",
+      "sale": "خصم",
+      "placeholder": {
+        "name": "الاسم",
+        "email": "example@gmail.com",
+        "subject": "الموضوع",
+        "message": "مرحبًا! أود الاستفسار عن..."
+      }
+    },
+    "breadcrumb": {
+      "home": "الرئيسية",
+      "contact": "تواصل معنا"
+    },
+    "info": {
+      "title": "معلومات الاتصال",
+      "text": "نحن متاحون لأي استفسار.",
+      "phone": "الهاتف",
+      "email": "البريد الإلكتروني",
+      "hours": "ساعات العمل",
+      "weekdays": "الإثنين - الجمعة",
+      "weekend": "السبت - الأحد"
+    }
+  },
+  "Footer": {
+    "shop": "تسوق",
+    "description": "متجرنا يقدم لك أفضل مستحضرات التجميل والعطور عالية الجودة التي تمنحك إطلالة متألقة وثقة تامة. نحرص على توفير منتجات مختارة بعناية لتناسب جميع احتياجاتك اليومية وتلبي توقعاتك.",
+    "customerService": "خدمة العملاء",
+    "followUs": "تابعنا",
+    "viewTrends": "شاهد أحدث صيحات المكياج والنصائح!",
+    "eye": "العيون",
+    "face": "الوجه",
+    "body": "الجسم",
+    "lips": "الشفاه",
+    "perfume": "العطور",
+    "about": "من نحن",
+    "contact": "تواصل معنا",
+    "privacyPolicy": "سياسة الخصوصية",
+    "refundPolicy": "سياسة الاسترجاع",
+    "shippingPolicy": "سياسة الشحن",
+    "copyright": "ياسمين مجدي 2025 | جميع الحقوق محفوظة."
+  },
+  "Activity": {
+    "links": {
+      "Home": "الرئيسية",
+      "Help": "المساعدة"
+    }
+  }
+}
