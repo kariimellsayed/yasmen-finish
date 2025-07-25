@@ -1,7 +1,10 @@
 "use client";
 
+import { useAppContext } from "@/app/Context/AppContext";
+import { storage } from "@/lib/storage";
 import { ProductDetails } from "@/types/product";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 // type ProductListItem = {
@@ -25,8 +28,15 @@ function Details({ product }: DetailsProps) {
     product.productImages.length > 0 ? product.productImages[0] : null
   );
 
-  const [rate, setRate] = useState<number>(4);
   const [viewToggle, setViewToggle] = useState<boolean>(true);
+  const [quantity, setQuantity] = useState<number>(1);
+  const [selectedColor, setSelectedColor] = useState<string>("Red");
+  const [selectedSize, setSelectedSize] = useState<string>("5 ML");
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const router = useRouter();
+
+  const { addToCart } = useAppContext();
 
   // const listOfProduct: ProductListItem[] = [
   //   {
@@ -124,6 +134,28 @@ function Details({ product }: DetailsProps) {
     setViewToggle(!viewToggle);
   };
 
+  // Add To Cart
+
+  const handleAddToCart = async (productId: number) => {
+    const token = storage.getToken();
+
+    if (!token) {
+      alert("You must be logged in to add products to your cart.");
+      router.push("/auth/login");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      await addToCart(productId, quantity, selectedColor, selectedSize);
+      alert("Product added to your cart successfully! ✅");
+    } catch {
+      alert("Failed to add product to cart. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="flex gap-7 lg:flex-row flex-col">
       <div className="lg:w-1/2 md:w-full">
@@ -165,8 +197,9 @@ function Details({ product }: DetailsProps) {
           {product.name}
         </h3>
         <p className="text-[#393939] font-semibold mb-1">
-          24HR Longwear Liquid Lipstick
+          {product.description}
         </p>
+
         <p className="text-[15px] text-[#868686]">
           <span>Ultra matte finish</span>{" "}
           <span className="mx-2 px-2 border-[1px] border-transparent border-l-[#868686] border-r-[#868686]">
@@ -176,32 +209,20 @@ function Details({ product }: DetailsProps) {
         </p>
         {/* Rati of product */}
         <div className="flex items-center mt-1.5">
-          {Array.from({ length: rate }).map((_, i) => (
-            <Image
-              key={i}
-              src={"/rating.svg"}
-              width={40}
-              height={40}
-              alt="rati"
-              className="w-[16px]"
-            />
-          ))}
+          <Image src={"/rating.svg"} width={20} height={20} alt="rati" />
 
-          {Array.from({ length: 5 - rate }).map((_, i) => (
-            <Image
-              key={i}
-              src={"/rating_empty.svg"}
-              width={40}
-              height={40}
-              alt="rati"
-              className="w-[16px]"
-            />
-          ))}
-          <span className="ml-3 text-[#393939] font-semibold">4.0</span>
+          <span className="ml-3 text-[#393939] font-semibold">
+            {product.rating}
+          </span>
         </div>
-        <p className="text-[#393939] font-semibold text-[20px] mt-1.5">
-          420.00 EGP
-        </p>
+        <div className="flex items-center gap-2 mt-1.5">
+          <p className="text-red-700 font-semibold text-[20px] line-through">
+            {product.oldPrice}
+          </p>
+          <p className="text-[#393939] font-semibold text-[20px]">
+            {product.newPrice}
+          </p>
+        </div>
         <button
           className="text-[#0B0806] font-semibold flex items-center gap-4 cursor-pointer my-[17px]"
           onClick={toggleViewDetails}
@@ -224,38 +245,44 @@ function Details({ product }: DetailsProps) {
               : "max-h-0 opacity-0 invisible"
           }`}
         >
-          {/* <div>
+          <div className="my-4">
             <span className="text-[#393939] block mb-2.5 font-semibold">
               Choose Color
             </span>
-            <div className={`flex items-center gap-3`}>
-              {colorsData.map((ele, index) => (
+            <div className="flex items-center gap-3">
+              {["Red", "Blue", "Green", "Black"].map((color) => (
                 <span
-                  key={index}
-                  className={`w-[18px] h-[18px] rounded-full cursor-pointer hover:scale-110 transition`}
-                  style={{ backgroundColor: ele }}
+                  key={color}
+                  onClick={() => setSelectedColor(color)}
+                  className={`w-[30px] h-[30px] rounded-full cursor-pointer border-2 transition ${
+                    selectedColor === color
+                      ? "border-[#FE93B9] scale-110"
+                      : "border-gray-300"
+                  }`}
+                  style={{ backgroundColor: color.toLowerCase() }}
                 ></span>
               ))}
             </div>
-          </div> */}
+          </div>
 
           <div className="w-full border-b border-[#9A3E6352] flex items-center justify-between text-[18px] text-[#868686] mt-4  py-2.5 relative">
             {/* Select input */}
             <select
               name="size"
               id="size"
-              defaultValue="0"
+              value={selectedSize}
+              onChange={(e) => setSelectedSize(e.target.value)}
               className="appearance-none bg-transparent w-full focus:outline-none pr-10"
             >
-              <option value="0">5 ML</option>
-              <option value="1">4 ML</option>
-              <option value="2">3 ML</option>
+              <option value="5 ML">5 ML</option>
+              <option value="4 ML">4 ML</option>
+              <option value="3 ML">3 ML</option>
             </select>
 
             {/* Price (on the right) */}
-            <span className="absolute right-6 pointer-events-none">
-              420.00 EGP
-            </span>
+            {/* <span className="absolute right-6 pointer-events-none">
+              {product.newPrice}
+            </span> */}
 
             {/* Arrow icon */}
             <div className="pointer-events-none absolute right-0 flex items-center pr-1">
@@ -290,7 +317,11 @@ function Details({ product }: DetailsProps) {
           <h4 className="text-[#868686] mb-4 font-medium">Qunantity</h4>
           <div className="flex items-center justify-between mb-5 pb-5 text-[#393939]">
             <div className="bg-[#E3E3E3] w-28 h-14 rounded-[48px] p-5 flex items-center justify-between text-[22px]">
-              <button className="cursor-pointer">
+              {/* Buttons + */}
+              <button
+                className="cursor-pointer"
+                onClick={() => setQuantity((prev) => prev + 1)}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -307,8 +338,15 @@ function Details({ product }: DetailsProps) {
                   />
                 </svg>
               </button>
-              <span>1</span>
-              <button className="cursor-pointer">
+
+              {/* القيمة */}
+              <span>{quantity}</span>
+
+              {/* Buttons - */}
+              <button
+                className="cursor-pointer"
+                onClick={() => setQuantity((prev) => (prev > 1 ? prev - 1 : 1))}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="14"
@@ -326,8 +364,40 @@ function Details({ product }: DetailsProps) {
                 </svg>
               </button>
             </div>
-            <button className="bg-[#FE93B9] w-[285px] cursor-pointer h-14 text-[#393939] rounded-[8px]">
-              Add To Cart
+            <button
+              onClick={() => handleAddToCart(product.id)}
+              disabled={loading}
+              className={`bg-[#FE93B9] w-[285px] cursor-pointer h-14 text-[#393939] rounded-[8px] flex items-center justify-center ${
+                loading ? "opacity-70 cursor-not-allowed" : ""
+              }`}
+            >
+              {loading ? (
+                <>
+                  <svg
+                    className="animate-spin h-5 w-5 mr-2 text-[#393939]"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 000 16v-4l-3 3 3 3v-4a8 8 0 01-8-8z"
+                    ></path>
+                  </svg>
+                  Loading...
+                </>
+              ) : (
+                "Add To Cart"
+              )}
             </button>
           </div>
 

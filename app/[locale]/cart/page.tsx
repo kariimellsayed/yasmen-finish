@@ -2,49 +2,49 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import ResultCart from "../components/ResultCart";
+import ResultCart from "../_components/ResultCart";
 import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
-type Product = {
-  id: number;
-  title: string;
-  size: string;
-  color: string;
-  price: number;
-  quantity: number;
-};
+// type Product = {
+//   id: number;
+//   title: string;
+//   size: string;
+//   color: string;
+//   price: number;
+//   quantity: number;
+// };
 
-type CartProps = {
-  Products: Product[];
-};
+// type CartProps = {
+//   Products: Product[];
+// };
 
-const cartProducts: Product[] = [
-  {
-    id: 1,
-    title: "Lip gloss",
-    size: "Large",
-    color: "white",
-    price: 320.0,
-    quantity: 1,
-  },
-  {
-    id: 2,
-    title: "Lip gloss",
-    size: "Medium",
-    color: "Red",
-    price: 320.0,
-    quantity: 1,
-  },
-  {
-    id: 3,
-    title: "Lip gloss",
-    size: "Large",
-    color: "Blue",
-    price: 320.0,
-    quantity: 1,
-  },
-];
+// const cartProducts: Product[] = [
+//   {
+//     id: 1,
+//     title: "Lip gloss",
+//     size: "Large",
+//     color: "white",
+//     price: 320.0,
+//     quantity: 1,
+//   },
+//   {
+//     id: 2,
+//     title: "Lip gloss",
+//     size: "Medium",
+//     color: "Red",
+//     price: 320.0,
+//     quantity: 1,
+//   },
+//   {
+//     id: 3,
+//     title: "Lip gloss",
+//     size: "Large",
+//     color: "Blue",
+//     price: 320.0,
+//     quantity: 1,
+//   },
+// ];
 
 export default function Cart() {
   const locale = useLocale();
@@ -56,7 +56,7 @@ export default function Cart() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
-      dir={locale === "ar" ? "rtl":"ltr"}
+      dir={locale === "ar" ? "rtl" : "ltr"}
     >
       <div className="custom__container">
         <motion.div
@@ -77,7 +77,7 @@ export default function Cart() {
           <div className="font-semibold">{t("title") || "Cart"}</div>
         </motion.div>
 
-        <ResultCart cartProducts={cartProducts} />
+        <ResultCart />
       </div>
     </motion.section>
   );

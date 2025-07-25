@@ -5,10 +5,10 @@ import Link from "next/link";
 // import Details from "../../components/Details";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import Reviews from "../../components/reviews";
+import Reviews from "../../_components/reviews";
 import { ProductDetails } from "@/types/product";
 import { fetchPrductDetails } from "@/api/fetchPrductDetails";
-import Details from "../../components/Details";
+import Details from "../../_components/Details";
 
 // export const metadata = {
 //   title: "Products",
@@ -100,7 +100,7 @@ export default function ProductDetailsPage({ params }: Props) {
           transition={{ duration: 0.6 }}
         >
           {loading ? (
-            <p className="text-center">Loading...</p>
+            <p className="text-center text-pink-500">Loading...</p>
           ) : product ? (
             <Details product={product} />
           ) : (

@@ -24,6 +24,7 @@ import {
 } from "react-icons/fi";
 
 import { storage } from "@/lib/storage";
+import { useAppContext } from "@/app/Context/AppContext"; // ✅ استدعاء الكونتكست
 
 type NavItem = {
   key: string;
@@ -47,15 +48,23 @@ export default function Navbar() {
   const [searchTerm, setSearchTerm] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const { cart, fetchCart } = useAppContext();
+
   // Token
   useEffect(() => {
     const token = storage.getToken();
     setIsLoggedIn(!!token);
-  }, []);
+  }, [storage.getToken()]); //
 
   useEffect(() => {
     setToggle(false);
   }, [pathName]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      fetchCart();
+    }
+  }, [isLoggedIn]);
 
   useEffect(() => {
     if (!searchTerm) return;
@@ -329,12 +338,18 @@ export default function Navbar() {
                   </div>
                   <Link
                     href="/cart"
-                    className="lg:bg-[#FE93B9] bg-transparent rounded-full w-[35px] h-[35px] flex justify-center items-center"
+                    className="relative lg:bg-[#FE93B9] bg-transparent rounded-full w-[35px] h-[35px] flex justify-center items-center"
                   >
                     <FiShoppingCart
                       size={20}
                       className="text-[#393939] lg:text-white"
                     />
+                    {/* Number Of Products */}
+                    {isLoggedIn && cart && cart.cartItems.length > 0 && (
+                      <span className="absolute -top-1 -right-1 bg-red-500 text-white text-sm font-bold rounded-full w-4 h-4 flex items-center justify-center">
+                        {cart.cartItems.length}
+                      </span>
+                    )}
                   </Link>
                   <Link
                     href="https://facebook.com"

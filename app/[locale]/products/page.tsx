@@ -2,7 +2,7 @@
 // import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import Categories from "../components/Categories";
+import Categories from "../_components/Categories";
 import { useTranslations } from "next-intl";
 
 export default function ProductsPage() {

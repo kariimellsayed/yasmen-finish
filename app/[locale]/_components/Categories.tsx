@@ -10,6 +10,9 @@ import { fetchProducts } from "@/api/products";
 import { Product } from "@/types/product";
 import { Heart, Star } from "lucide-react";
 import Link from "next/link";
+import { useAppContext } from "@/app/Context/AppContext";
+import { storage } from "@/lib/storage";
+import { useRouter } from "next/navigation";
 
 // Props interface
 
@@ -31,6 +34,8 @@ export default function Categories() {
   // const [visibleCount, setVisibleCount] = useState<number>(8);
   // const loaderRef = useRef<HTMLDivElement | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const { addToCart } = useAppContext();
+  const router = useRouter();
 
   // const [cart, setCart] = useState<Cart>({});
 
@@ -158,35 +163,6 @@ export default function Categories() {
   //   },
   // ];
 
-  // useEffect(() => {
-  //   const filtered = allProducts.filter((product) => {
-  //     const matchSearch =
-  //       search.trim() === "" ||
-  //       product.name.toLowerCase().includes(search.toLowerCase());
-  //     const matchCategory = selected === 0 || product.category === selected;
-  //     return matchSearch && matchCategory;
-  //   });
-  //   setFilteredProducts(filtered);
-  //   setVisibleCount(8);
-  // }, [search, selected]);
-
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       if (entries[0].isIntersecting) {
-  //         setVisibleCount((prev) => prev + 4);
-  //       }
-  //     },
-  //     { threshold: 1.0 }
-  //   );
-
-  //   if (loaderRef.current) observer.observe(loaderRef.current);
-
-  //   return () => {
-  //     if (loaderRef.current) observer.unobserve(loaderRef.current);
-  //   };
-  // }, [filteredProducts]);
-
   const renderStars = (rating: number) => {
     const fullStars = Math.floor(rating);
     const hasHalf = rating % 1 !== 0;
@@ -217,9 +193,25 @@ export default function Categories() {
     return stars;
   };
 
-  // const handleAddToCart = (product: Product) => {
+  const handleAddToCart = async (productId: number) => {
+    const token = storage.getToken();
 
-  // };
+    if (!token) {
+      alert("You must be logged in to add products to your cart.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      await addToCart(productId, 1, "Red", "Medium");
+      alert("Product added to your cart successfully! ✅");
+      router.push("/auth/login");
+    } catch {
+      alert("Failed to add product to cart. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // const handleAddToWishlist = (product: Product) => {
 
@@ -398,7 +390,7 @@ export default function Categories() {
               <div className="px-4 pb-4">
                 <button
                   // onClick={() => handleAddToWishlist(product)}
-                  className="flex items-center gap-2 text-pink-400 text-sm mb-3 hover:text-pink-500 transition"
+                  className="flex items-center gap-2 text-pink-400 text-sm mb-3 hover:text-pink-500 transition cursor-pointer"
                 >
                   <Heart className="w-4 h-4" /> Add to Wishlist
                 </button>
@@ -407,8 +399,9 @@ export default function Categories() {
                 </h3>
                 <div className="flex items-center gap-2 mb-4">
                   <div className="flex">{renderStars(product.rating)}</div>
-                  <span className="text-sm text-gray-500">
+                  <span className="text-sm font-semibold text-gray-700">
                     {/* ({product.reviewCount || 0}) */}
+                    {product.rating}
                   </span>
                 </div>
                 <div className="flex items-center gap-2 mb-4">
@@ -422,11 +415,10 @@ export default function Categories() {
                   </span>
                 </div>
                 <button
-                  // onClick={() => handleAddToCart(product)}
-                  className="w-full bg-[#FE93B9] text-[#393939] font-medium py-3 rounded-full transition hover:bg-[#fe7ca8]
-                  cursor-pointer"
+                  onClick={() => handleAddToCart(product.id)}
+                  className="w-full bg-[#FE93B9] text-[#393939] font-medium py-3 rounded-full transition hover:bg-[#fe7ca8] cursor-pointer"
                 >
-                  {tProd("addToCart")}
+                  {loading ? "Loading..." : tProd("addToCart")})
                 </button>
               </div>
             </div>

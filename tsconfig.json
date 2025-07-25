@@ -22,6 +22,14 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next.config.ts", "app/[locale]/components/SwitchButtonLang.jsx", "app/[locale]/components/Categories.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "next.config.ts",
+    "app/[locale]/_components/SwitchButtonLang.jsx",
+    "app/[locale]/_components/Categories.tsx"
+  ],
   "exclude": ["node_modules"]
 }
