@@ -11,7 +11,7 @@
     "privacy": "Privacy",
     "help": "Help",
     "account": "Account",
-    "logout": "Logout"
+    "dashboard": "Dashboard"
   },
   "Landing": {
     "title": "Welcome to Our Online Store",
@@ -42,7 +42,7 @@
     "wishlist": "Add to Wishlist",
     "sale": "Sale"
   },
-  "CartPage": {
+ "CartPage": {
     "title": "Your Cart",
     "home": "Home",
     "emptyCart": "Your cart is empty.",
@@ -101,6 +101,17 @@
     "noAccount": "Don't have an account?",
     "registerHere": "Register here"
   },
+  "helpPage": {
+    "links": {
+    "Home": "Home",
+    "Help": "Help"
+    },
+    "title": "How Can We Help?",
+    "description": "Lorem ipsum dolor sit amet consectetur. Phasellus fermentum purus eget eros feugiat amet in habitant accumsan.",
+    "sectionTitle": "Help & Support",
+    "sectionDescription": "Lorem ipsum dolor sit amet consectetur. Phasellus fermentum purus eget eros feugiat amet in habitant accumsan.",
+    "contactSupport": "Contact Support"
+  },
   "PasswordReset": {
     "sendCodeTitle": "Reset Password",
     "sendCodeDescription": "Enter your email to receive a verification code.",
@@ -138,10 +149,6 @@
     "submitTicket": "Submit Ticket",
     "liveChat": "Live Chat"
   },
-  "PrivacyPage": {
-    "title": "Privacy Policy",
-    "description": "Your privacy matters to us. Read our policy to learn how we protect your data."
-  },
   "ContactPage": {
     "title": "Contact Us",
     "description": "For any inquiries or assistance, the Yasmin Magdy team is always ready to help you.",
@@ -177,7 +184,7 @@
       "weekend": "Saturday - Sunday"
     }
   },
-  "Footer": {
+"Footer": {
     "shop": "Shop",
     "description": "Our store offers you the finest cosmetics and high-quality perfumes that give you a radiant look and complete confidence. We are committed to providing carefully selected products to meet all your daily needs and exceed your expectations.",
     "customerService": "Customer Service",
@@ -209,14 +216,67 @@
   },
   "Activity": {
     "links": {
-      "Home": "Home",
-      "Help": "Help"
+    "Home": "Home",
+    "Help": "Help"
     }
   },
-  "Privacy": {
-    "links": {
-      "Home": "Home",
-      "Priv": "Privacy"
+"Privacy": {
+  "links": {
+    "Home": "Home",
+    "Priv": "Privacy"
+  },
+  "title": "Privacy",
+  "description": "We value your privacy and are committed to protecting your personal information. Please review the following details to understand how we collect, use, and secure your data.",
+  "list": {
+    "one": {
+      "title": "We collect only the necessary information to provide and improve our services.",
+      "description": "This includes details like your email address, preferences, and usage patterns to help us deliver a better and more personalized experience."
+    },
+    "two": {
+      "title": "Your data will never be shared with third parties without your consent.",
+      "description": "We respect your privacy and guarantee that any sharing of information will only occur if you explicitly agree or if required by law."
+    },
+    "three": {
+      "title": "You have the right to access, update, or delete your personal information at any time.",
+      "description": "You can contact our support team to request changes or removal of your data. We will process your request promptly and confirm once completed."
     }
   }
+},
+"dashboard": {
+    "nav": {
+      "users": "Users",
+      "products": "Products",
+      "brands": "Brands",
+      "orders": "Orders",
+      "settings": "Settings"
+    },
+    "navContent": {
+      "usersContent": "User List",
+      "productsContent": "Manage Products",
+      "brandsContent": "Available Brands",
+      "ordersContent": "Customer Orders",
+      "settingsContent": "System Settings"
+    },
+    "addProduct": "Add Product"
+  },
+  "usersPage": {
+  "title": "User Management",
+  "viewDetails": "View Details",
+  "name": "Name",
+  "email": "Email",
+  "status": "Status",
+  "active": "Active",
+  "inactive": "Inactive",
+  "role": "Role",
+  "admin": "Admin",
+  "user": "Regular User",
+  "edit": "Edit",
+  "delete": "Delete",
+  "setAdmin": "Set as Admin",
+  "removeAdmin": "Remove Admin",
+  "close": "Close",
+  "modalTitle": "User Details"
+}
+
+  
 }
