@@ -210,18 +210,90 @@
     "nav": {
       "users": "المستخدمين",
       "products": "المنتجات",
-      "brands": "الماركات",
+      "categories": "الفئات",
       "orders": "الطلبات",
       "settings": "الإعدادات"
     },
+      "placeholders": {
+    "categoryName": "أدخل اسم الفئة",
+    "categoryIcon": "أدخل رابط الأيقونة أو اسم الكلاس"
+  },
     "navContent": {
       "usersContent": "قائمة المستخدمين",
       "productsContent": "إدارة المنتجات",
-      "brandsContent": "الماركات المتوفرة",
       "ordersContent": "طلبات العملاء",
-      "settingsContent": "إعدادات النظام"
+      "settingsContent": "إعدادات النظام",
+       "categoriesContent": "الفئات"
     },
+     "actions": {
+      "add": "إضافة فئة",
+   "edit": "تعديل",
+   "save": "حفظ",
+      "delete": "حذف",
+      "addCategory": "إضافة تصنيف",
+      "confirmDeleteCategory": "هل أنت متأكد أنك تريد حذف هذا التصنيف؟"
+  },
+   "messages": {
+      "confirmDelete": "هل أنت متأكد أنك تريد حذف هذه الفئة؟",
+      "enterCategoryName": "أدخل اسم الفئة الجديدة:",
+      "editDisabled": "وظيفة التعديل غير مفعلة في هذا العرض."
+    },
+  
+
+  "orders": {
+    "orderNumber": "رقم الطلب",
+    "customer": "العميل",
+    "status": "الحالة",
+    "date": "التاريخ",
+    "details": "تفاصيل",
+    "viewDetails": "عرض التفاصيل",
+    "orderDetails": "تفاصيل الطلب",
+    "detailsTitle": "تفاصيل الطلب",
+    "uploadImage": "رفع صورة الطلب",
+      "statuses": {
+      "delivered": "مكتمل",
+  "processing": "قيد التنفيذ",
+  "pending": "قيد الانتظار",
+  "shipped": "تم الشحن",
+  "cancelled": "تم الإلغاء",
+  "returned": "تم الإرجاع",
+  "failed": "فشل في التسليم"
+      
+    }
+  }
+  
+  },
     "addProduct": "إضافة منتج"
+  },
+  
+    "Users": {
+    "Show Details": "عرض التفاصيل",
+    "Edit": "تعديل",
+    "Delete": "حذف",
+    "Close": "إغلاق",
+    "Set as Admin": "تعيين كأدمن",
+    "Remove Admin": "إلغاء الأدمنية",
+    "Status": "الحالة",
+    "Active": "نشط",
+    "Inactive": "غير نشط",
+    "Admin": "أدمن",
+    "User": "مستخدم عادي",
+    "Name": "الاسم",
+    "Email": "البريد الإلكتروني"
+  },
+  "Products": {
+    "title": "منتجات الميكاب",
+  "add_product": "إضافة منتج جديد",
+  "name": "اسم المنتج",
+  "price": "السعر",
+  "image_url": "رابط الصورة",
+  "description": "الوصف",
+  "stock": "الكمية في الستوك",
+  "colors": "الألوان",
+  "sizes": "المقاسات",
+  "submit": "إضافة المنتج",
+  "edit": "تعديل",
+  "available_quantity": "الكمية المتاحة"
   },
   "Privacy": {
     "links": {
@@ -245,19 +317,12 @@
       }
     }
   },
-  "Users": {
-    "Show Details": "عرض التفاصيل",
-    "Edit": "تعديل",
-    "Delete": "حذف",
-    "Close": "إغلاق",
-    "Set as Admin": "تعيين كأدمن",
-    "Remove Admin": "إلغاء الأدمنية",
-    "Status": "الحالة",
-    "Active": "نشط",
-    "Inactive": "غير نشط",
-    "Admin": "أدمن",
-    "User": "مستخدم عادي",
-    "Name": "الاسم",
-    "Email": "البريد الإلكتروني"
-  }
-}
+
+  
+
+
+
+
+
+
+

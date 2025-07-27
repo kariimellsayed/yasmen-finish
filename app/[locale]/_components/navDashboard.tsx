@@ -13,7 +13,7 @@ export default function NavDashboard() {
   const links = [
     { href: "/dashboard/users", label: t("nav.users") },
     { href: "/dashboard/products", label: t("nav.products") },
-    { href: "/dashboard/brands", label: t("nav.brands") },
+    { href: "/dashboard/categories", label: t("nav.categories") },
     { href: "/dashboard/orders", label: t("nav.orders") },
     { href: "/dashboard/settings", label: t("nav.settings") },
   ];
