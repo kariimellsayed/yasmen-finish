@@ -15,16 +15,17 @@ import Details from "../../_components/Details";
 // };
 
 type Props = {
-  params: {
+  params: Promise<{
     productDetails: string;
-  };
+  }>;
 };
 
-export default function ProductDetailsPage({ params }: Props) {
+export default async function ProductDetailsPage({ params }: Props) {
+  const resolvedParams = await params;
   const [product, setProduct] = useState<ProductDetails | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
-  const productDetails = Number(params.productDetails);
+  const productDetails = Number(resolvedParams.productDetails);
 
   const t = useTranslations("ProductPage");
   // const tb = useTranslations("ContactPage.breadcrumb");
@@ -90,7 +91,7 @@ export default function ProductDetailsPage({ params }: Props) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {t("productDetails")} - {params.productDetails}
+          {t("productDetails")} - {resolvedParams.productDetails}
         </motion.h2>
 
         {/* Product details section with animation */}

@@ -4,7 +4,7 @@ import Link from "next/link";
 import CheckoutForms from "../../_components/CheckoutForms";
 import { useLocale, useTranslations } from "next-intl";
 
-export default function Checkout(params: []) {
+export default function Checkout() {
   const locale = useLocale();
   const t = useTranslations("CheckoutPage");
   return (

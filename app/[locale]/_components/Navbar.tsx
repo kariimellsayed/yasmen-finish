@@ -129,7 +129,7 @@ export default function Navbar() {
       <header>
         <p className="flex justify-center items-center gap-2.5 p-2.5 px-20 bg-[#FE93B9] text-[#393939] text-[15px] max-[767px]:text-[13px]">
           <FiGift size={20} />
-          Only this month 20% discount on all services
+          {t("discountMessage")}
           <FiGift size={20} />
         </p>
 
@@ -179,7 +179,7 @@ export default function Navbar() {
                   <div className="hidden lg:block relative">
                     <input
                       type="text"
-                      placeholder="Search"
+                      placeholder={t("search")}
                       className="px-3 py-1 text-sm rounded-md bg-[#f3f3f3] outline-none text-black"
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}

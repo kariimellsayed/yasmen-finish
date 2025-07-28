@@ -10,7 +10,10 @@
     "activity": "النشاط",
     "privacy": "الخصوصية",
     "help": "مساعدة",
-    "account": "الحساب"
+    "account": "الحساب",
+    "dashboard": "لوحة التحكم",
+    "search": "بحث",
+    "discountMessage": "خصم 20% على جميع الخدمات هذا الشهر فقط"
   },
   "Landing": {
     "title": "مرحبًا بكم في متجرنا الإلكتروني",
@@ -31,6 +34,7 @@
   },
   "ProductPage": {
     "title": "تفاصيل المنتج",
+    "home": "الرئيسية",
     "addToCart": "أضف إلى السلة",
     "buyNow": "اشتري الآن",
     "productDetails": "تفاصيل المنتج",
@@ -211,89 +215,97 @@
       "users": "المستخدمين",
       "products": "المنتجات",
       "categories": "الفئات",
-      "orders": "الطلبات",
-      "settings": "الإعدادات"
+      "orders": "الطلبات"
     },
-      "placeholders": {
-    "categoryName": "أدخل اسم الفئة",
-    "categoryIcon": "أدخل رابط الأيقونة أو اسم الكلاس"
-  },
     "navContent": {
       "usersContent": "قائمة المستخدمين",
       "productsContent": "إدارة المنتجات",
       "ordersContent": "طلبات العملاء",
       "settingsContent": "إعدادات النظام",
-       "categoriesContent": "الفئات"
+      "categoriesContent": "الفئات"
     },
-     "actions": {
+    "actions": {
       "add": "إضافة فئة",
-   "edit": "تعديل",
-   "save": "حفظ",
+      "edit": "تعديل",
+      "save": "حفظ",
       "delete": "حذف",
       "addCategory": "إضافة تصنيف",
       "confirmDeleteCategory": "هل أنت متأكد أنك تريد حذف هذا التصنيف؟"
-  },
-   "messages": {
+    },
+    "messages": {
       "confirmDelete": "هل أنت متأكد أنك تريد حذف هذه الفئة؟",
       "enterCategoryName": "أدخل اسم الفئة الجديدة:",
       "editDisabled": "وظيفة التعديل غير مفعلة في هذا العرض."
     },
-  
+    "placeholders": {
+      "categoryName": "أدخل اسم الفئة",
 
-  "orders": {
-    "orderNumber": "رقم الطلب",
-    "customer": "العميل",
-    "status": "الحالة",
-    "date": "التاريخ",
-    "details": "تفاصيل",
-    "viewDetails": "عرض التفاصيل",
-    "orderDetails": "تفاصيل الطلب",
-    "detailsTitle": "تفاصيل الطلب",
-    "uploadImage": "رفع صورة الطلب",
+      "categoryIcon": "أيقونة الفئة (اختياري)"
+    },
+    "orders": {
+      "orderNumber": "رقم الطلب",
+      "customer": "العميل",
+      "status": "الحالة",
+      "date": "التاريخ",
+      "details": "تفاصيل",
+      "viewDetails": "عرض التفاصيل",
+      "orderDetails": "تفاصيل الطلب",
+      "detailsTitle": "تفاصيل الطلب",
+      "uploadImage": "رفع صورة الطلب",
       "statuses": {
-      "delivered": "مكتمل",
-  "processing": "قيد التنفيذ",
-  "pending": "قيد الانتظار",
-  "shipped": "تم الشحن",
-  "cancelled": "تم الإلغاء",
-  "returned": "تم الإرجاع",
-  "failed": "فشل في التسليم"
-      
-    }
-  }
-  
-  },
+        "delivered": "مكتمل",
+        "processing": "قيد التنفيذ",
+        "pending": "قيد الانتظار",
+        "shipped": "تم الشحن",
+        "cancelled": "تم الإلغاء",
+        "returned": "تم الإرجاع",
+        "failed": "فشل في التسليم"
+      }
+    },
+    "users": {
+      "title": "إدارة المستخدمين",
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "actions": "الإجراءات",
+      "details": "عرض التفاصيل",
+      "userDetails": "تفاصيل المستخدم",
+      "role": "الدور",
+      "admin": "أدمن",
+      "user": "مستخدم",
+      "delete": "حذف",
+      "close": "إغلاق",
+      "setAdmin": "تعيين كأدمن",
+      "removeAdmin": "إلغاء الأدمنية",
+      "status": "الحالة",
+      "active": "نشط",
+      "inactive": "غير نشط"
+    },
+    "products": {
+      "title": "منتجات الميكاب",
+      "add_product": "إضافة منتج جديد",
+      "name": "اسم المنتج",
+      "price": "السعر",
+      "image_url": "رابط الصورة",
+      "description": "الوصف",
+      "stock": "الكمية في الستوك",
+      "colors": "الألوان",
+      "sizes": "المقاسات",
+      "submit": "إضافة المنتج",
+      "edit": "تعديل",
+      "available_quantity": "الكمية المتاحة",
+      "products_title": "المنتجات",
+      "product_name": "اسم المنتج",
+      "product_price": "سعر المنتج",
+      "edit_product": "تعديل المنتج",
+      "update_product": "تحديث المنتج",
+      "available_stock": "الكمية المتاحة",
+      "details": "التفاصيل",
+      "fill_all_fields": "يرجى ملء جميع الحقول المطلوبة",
+      "upload_image": "رفع صورة",
+      "choose_file": "اختر ملف",
+      "image_preview": "معاينة الصورة"
+    },
     "addProduct": "إضافة منتج"
-  },
-  
-    "Users": {
-    "Show Details": "عرض التفاصيل",
-    "Edit": "تعديل",
-    "Delete": "حذف",
-    "Close": "إغلاق",
-    "Set as Admin": "تعيين كأدمن",
-    "Remove Admin": "إلغاء الأدمنية",
-    "Status": "الحالة",
-    "Active": "نشط",
-    "Inactive": "غير نشط",
-    "Admin": "أدمن",
-    "User": "مستخدم عادي",
-    "Name": "الاسم",
-    "Email": "البريد الإلكتروني"
-  },
-  "Products": {
-    "title": "منتجات الميكاب",
-  "add_product": "إضافة منتج جديد",
-  "name": "اسم المنتج",
-  "price": "السعر",
-  "image_url": "رابط الصورة",
-  "description": "الوصف",
-  "stock": "الكمية في الستوك",
-  "colors": "الألوان",
-  "sizes": "المقاسات",
-  "submit": "إضافة المنتج",
-  "edit": "تعديل",
-  "available_quantity": "الكمية المتاحة"
   },
   "Privacy": {
     "links": {
@@ -317,6 +329,76 @@
       }
     }
   },
+  "NotFound": {
+    "title": "الصفحة غير موجودة",
+    "description": "عذراً، الصفحة التي تبحث عنها غير موجودة.",
+    "goHome": "العودة للرئيسية"
+  },
+  "Reviews": {
+    "title": "المراجعات",
+    "writeReview": "اكتب مراجعتك",
+    "writeReviewTitle": "ما رأيك في هذا المنتج؟",
+    "writeReviewButton": "اكتب مراجعة",
+    "monthsAgo": "شهر",
+    "weeksAgo": "أسبوع",
+    "ago": "منذ"
+  },
+  "breadcrumb": {
+    "home": "الرئيسية",
+    "products": "المنتجات",
+    "productDetails": "تفاصيل المنتج",
+    "cart": "السلة",
+    "checkout": "الدفع",
+    "contact": "تواصل معنا",
+    "support": "الدعم",
+    "profile": "الملف الشخصي",
+    "login": "تسجيل الدخول",
+    "register": "تسجيل"
+  },
+  "usersPage": {
+    "title": "إدارة المستخدمين",
+    "viewDetails": "عرض التفاصيل",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "status": "الحالة",
+    "active": "نشط",
+    "inactive": "غير نشط",
+    "role": "الدور",
+    "admin": "أدمن",
+    "user": "مستخدم عادي",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "setAdmin": "تعيين كأدمن",
+    "removeAdmin": "إلغاء الأدمنية",
+    "close": "إغلاق",
+    "modalTitle": "تفاصيل المستخدم"
+  },
+  "products": {
+    "title": "منتجات الميكاب",
+    "add_product": "إضافة منتج جديد",
+    "name": "اسم المنتج",
+    "price": "السعر",
+    "image_url": "رابط الصورة",
+    "description": "الوصف",
+    "stock": "الكمية في الستوك",
+    "colors": "الألوان",
+    "sizes": "المقاسات",
+    "submit": "إضافة المنتج",
+    "edit": "تعديل",
+    "available_quantity": "الكمية المتاحة",
+    "products_title": "المنتجات",
+    "product_name": "اسم المنتج",
+    "product_price": "سعر المنتج",
+    "edit_product": "تعديل المنتج",
+    "update_product": "تحديث المنتج",
+    "available_stock": "الكمية المتاحة",
+    "details": "التفاصيل",
+    "fill_all_fields": "يرجى ملء جميع الحقول المطلوبة",
+    "upload_image": "رفع صورة",
+    "choose_file": "اختر ملف",
+    "image_preview": "معاينة الصورة"
+  }
+}
 
   
 

@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
-import { useTranslation } from 'next-i18next';
+import { useTranslations } from "next-intl";
 
 
 type Product = {
@@ -13,10 +13,19 @@ type Product = {
   stock: number;
   colors: string[];
   sizes: string[];
+  categoryId: number; // أضفت هذا السطر
 };
 
+// قائمة التصنيفات (يمكن لاحقاً جلبها من API أو Context)
+const categories = [
+  { id: 1, name: "أحمر شفاه", icon: "/categories/lipstick.png" },
+  { id: 2, name: "كحل", icon: "/categories/kohl.png" },
+  { id: 3, name: "فاونديشن", icon: "/categories/foundation.png" },
+];
+
 export default function Products() {
-  const { t } = useTranslation();
+  const t = useTranslations("products");
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [products, setProducts] = useState<Product[]>([
     {
@@ -28,6 +37,7 @@ export default function Products() {
       stock: 10,
       colors: ["وردي", "نبيتي", "أحمر"],
       sizes: ["صغير", "وسط"],
+      categoryId: 1, // التصنيف المناسب
     },
     {
       id: 2,
@@ -38,6 +48,7 @@ export default function Products() {
       stock: 5,
       colors: ["نود", "ملون"],
       sizes: ["ميني", "ستاندرد"],
+      categoryId: 2, // التصنيف المناسب
     },
   ]);
 
@@ -51,8 +62,22 @@ export default function Products() {
     stock: 0,
     colors: [],
     sizes: [],
+    categoryId: 0, // أضفت هذا
   });
   const [editMode, setEditMode] = useState<boolean>(false);
+  const [imagePreview, setImagePreview] = useState<string>("");
+
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setImagePreview(e.target?.result as string);
+        setNewProduct({ ...newProduct, image: e.target?.result as string });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const handleAddOrUpdateProduct = () => {
     if (!newProduct.name || !newProduct.price || !newProduct.image)
@@ -81,13 +106,16 @@ export default function Products() {
       stock: 0,
       colors: [],
       sizes: [],
+      categoryId: 0, // أضفت هذا
     });
     setEditMode(false);
+    setImagePreview("");
   };
 
   const handleEditProduct = (product: Product) => {
     setNewProduct(product);
     setEditMode(true);
+    setImagePreview(product.image);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -116,13 +144,53 @@ export default function Products() {
             value={newProduct.price}
             onChange={(e) => setNewProduct({ ...newProduct, price: e.target.value })}
           />
-          <input
-            type="text"
-            placeholder={t("image_url")}
+          {/* اختيار التصنيف */}
+          <select
             className="border p-2 rounded"
-            value={newProduct.image}
-            onChange={(e) => setNewProduct({ ...newProduct, image: e.target.value })}
-          />
+            value={newProduct.categoryId || ""}
+            onChange={(e) => setNewProduct({ ...newProduct, categoryId: Number(e.target.value) })}
+          >
+            <option value="">اختر التصنيف</option>
+            {categories.map((cat) => (
+              <option key={cat.id} value={cat.id}>{cat.name}</option>
+            ))}
+          </select>
+          
+          {/* رفع الصورة */}
+          <div className="col-span-2">
+            <label className="block text-sm font-medium mb-2">{t("upload_image")}</label>
+            <input
+              type="file"
+              accept="image/*"
+              ref={fileInputRef}
+              onChange={handleImageUpload}
+              className="hidden"
+            />
+            <button
+              type="button"
+              onClick={() => fileInputRef.current?.click()}
+              className="w-full border-2 border-dashed border-gray-300 rounded-lg p-4 text-center hover:border-gray-400 transition-colors"
+            >
+              {imagePreview ? (
+                <div className="space-y-2">
+                  <Image
+                    src={imagePreview}
+                    alt="Preview"
+                    width={200}
+                    height={150}
+                    className="mx-auto rounded-lg"
+                  />
+                  <p className="text-sm text-gray-600">{t("image_preview")}</p>
+                </div>
+              ) : (
+                <div className="space-y-2">
+                  <div className="text-4xl text-gray-400">📷</div>
+                  <p className="text-gray-600">{t("choose_file")}</p>
+                </div>
+              )}
+            </button>
+          </div>
+
           <input
             type="text"
             placeholder={t("description")}
@@ -221,6 +289,8 @@ export default function Products() {
             <p className="text-gray-700 mb-2">{selectedProduct.description}</p>
             <p className="text-pink-600 font-bold text-lg mb-2">{selectedProduct.price}</p>
             <p className="text-gray-800 mb-1">{t("available_stock")}: {selectedProduct.stock}</p>
+            {/* عرض اسم التصنيف */}
+            <p className="text-gray-700 mb-1">التصنيف: {categories.find((c) => c.id === selectedProduct.categoryId)?.name || "غير محدد"}</p>
 
             <div className="mb-2">
               <p className="font-semibold">{t("colors")}</p>

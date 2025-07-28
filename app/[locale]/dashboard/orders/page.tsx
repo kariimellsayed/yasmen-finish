@@ -4,6 +4,14 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
+interface Order {
+  id: number;
+  orderNumber: string;
+  customer: string;
+  status: string;
+  date: string;
+}
+
 const dummyOrders = [
   { id: 101, customer: "أحمد إبراهيم", status: "مكتمل", date: "2025-07-10" },
   { id: 102, customer: "سارة علي", status: "قيد التنفيذ", date: "2025-07-12" },
@@ -22,7 +30,7 @@ const statusMap: Record<string, string> = {
 
 export default function Orders() {
   const t = useTranslations("dashboard");
-  const [selectedOrder, setSelectedOrder] = useState<any | null>(null);
+  const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {

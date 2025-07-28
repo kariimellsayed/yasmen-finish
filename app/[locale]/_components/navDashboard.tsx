@@ -15,7 +15,7 @@ export default function NavDashboard() {
     { href: "/dashboard/products", label: t("nav.products") },
     { href: "/dashboard/categories", label: t("nav.categories") },
     { href: "/dashboard/orders", label: t("nav.orders") },
-    { href: "/dashboard/settings", label: t("nav.settings") },
+
   ];
 
   return (
