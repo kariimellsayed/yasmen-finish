@@ -10,9 +10,9 @@ import { fetchProducts } from "@/api/products";
 import { Product } from "@/types/product";
 import { Heart, Star } from "lucide-react";
 import Link from "next/link";
-import { useAppContext } from "@/app/Context/AppContext";
 import { storage } from "@/lib/storage";
 import { useRouter } from "next/navigation";
+import { useAppContext } from "@/app/_Context/AppContext";
 
 // Props interface
 

@@ -7,7 +7,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import AppProviderWrapper from "../Context/AppProviderWrapper";
+import AppProviderWrapper from "../_Context/AppProviderWrapper";
 
 export const metadata = {
   title: "Home",

@@ -1,6 +1,6 @@
 "use client";
 
-import { useAppContext } from "@/app/Context/AppContext";
+import { useAppContext } from "@/app/_Context/AppContext";
 import { storage } from "@/lib/storage";
 import { ProductDetails } from "@/types/product";
 import Image from "next/image";
