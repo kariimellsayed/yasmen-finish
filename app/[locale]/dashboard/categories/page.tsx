@@ -2,7 +2,8 @@
 
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import Image from "next/image";
 
 const dummyCategories = [
   { id: 1, name: "أحمر شفاه", icon: "/categories/lipstick.png" },
@@ -15,6 +16,7 @@ export default function Categories() {
   const [categories, setCategories] = useState(dummyCategories);
   const [newName, setNewName] = useState("");
   const [newIcon, setNewIcon] = useState("");
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleAddCategory = () => {
     if (!newName || !newIcon) {
@@ -25,12 +27,25 @@ export default function Categories() {
     const newCategory = {
       id: categories.length + 1,
       name: newName,
-      icon: newIcon,
+      icon: newIcon, // Base64 image
     };
 
     setCategories((prev) => [...prev, newCategory]);
     setNewName("");
     setNewIcon("");
+  };
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        if (e.target?.result) {
+          setNewIcon(e.target.result as string); // Set base64
+        }
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleDelete = (id: number) => {
@@ -66,13 +81,36 @@ export default function Categories() {
             onChange={(e) => setNewName(e.target.value)}
             className="border border-gray-300 rounded-lg px-3 py-2 w-full text-gray-900 placeholder-gray-500"
           />
-          <input
-            type="text"
-            placeholder={t("placeholders.categoryIcon")}
-            value={newIcon}
-            onChange={(e) => setNewIcon(e.target.value)}
-            className="border border-gray-300 rounded-lg px-3 py-2 w-full text-gray-900 placeholder-gray-500"
-          />
+          <div className="w-full">
+            <input
+              type="file"
+              accept="image/*"
+              placeholder={t("placeholders.categoryIcon")}
+              ref={fileInputRef}
+              onChange={handleImageUpload}
+              className="hidden"
+            />
+            <button
+              type="button"
+              onClick={() => fileInputRef.current?.click()}
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-500 hover:border-gray-400"
+            >
+              {newIcon ? t("actions.changeIcon") : t("placeholders.categoryIcon")}
+            </button>
+
+            {newIcon && (
+              <div className="mt-2 flex justify-center">
+                <Image
+                  src={newIcon}
+                  alt="Preview"
+                  width={60}
+                  height={60}
+                  className="rounded object-contain"
+                />
+              </div>
+            )}
+          </div>
+
           <button
             onClick={handleAddCategory}
             className="bg-blue-700 text-white px-4 py-2 rounded-xl hover:bg-blue-800 transition"
@@ -89,9 +127,11 @@ export default function Categories() {
             key={category.id}
             className="bg-white p-5 rounded-xl shadow-sm flex flex-col items-center text-center"
           >
-            <img
+            <Image
               src={category.icon}
               alt={category.name}
+              width={80}
+              height={80}
               className="w-20 h-20 object-contain mb-4"
             />
             <h3 className="text-lg font-semibold text-gray-900">

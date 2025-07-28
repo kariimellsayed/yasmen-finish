@@ -11,7 +11,9 @@
     "privacy": "Privacy",
     "help": "Help",
     "account": "Account",
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "search": "Search",
+    "discountMessage": "Only this month 20% discount on all services"
   },
   "Landing": {
     "title": "Welcome to Our Online Store",
@@ -31,7 +33,7 @@
     "wishlist": "Add to Wishlist"
   },
   "ProductPage": {
-    "title": "Categories",
+    "title": "Product Details",
     "home": "Home",
     "addToCart": "Add to Cart",
     "buyNow": "Buy Now",
@@ -167,7 +169,7 @@
         "name": "Name",
         "email": "example@gmail.com",
         "subject": "Subject",
-        "message": "Hi! I’d like to inquire about..."
+        "message": "Hi! I'd like to inquire about..."
       }
     },
     "breadcrumb": {
@@ -247,13 +249,31 @@
       "users": "Users",
       "products": "Products",
       "categories": "Categories",
-      "orders": "Orders",
-      "settings": "Settings"
+      "orders": "Orders"
     },
-      "placeholders": {
-    "categoryName": "Enter category name",
-    "categoryIcon": "Enter icon URL or class name"
-  },
+    "users": {
+      "title": "User Management",
+      "name": "Name",
+      "email": "Email",
+      "actions": "Actions",
+      "details": "View Details",
+      "userDetails": "User Details",
+      "role": "Role",
+      "admin": "Admin",
+      "user": "User",
+      "delete": "Delete",
+      "close": "Close",
+      "setAdmin": "Set as Admin",
+      "removeAdmin": "Remove Admin",
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "placeholders": {
+      "categoryName": "Enter category name",
+    
+      "categoryIcon": "Category Icon (optional)"
+    },
     "orders": {
       "orderNumber": "Order Number",
       "customer": "Customer",
@@ -265,38 +285,35 @@
       "detailsTitle": "Order Details",
       "uploadImage": "Upload Order Image",
       "statuses": {
-    "delivered": "Delivered",
-  "processing": "Processing",
-  "pending": "Pending",
-  "shipped": "Shipped",
-  "cancelled": "Cancelled",
-  "returned": "Returned",
-  "failed": "Failed"
-    }
+        "delivered": "Delivered",
+        "processing": "Processing",
+        "pending": "Pending",
+        "shipped": "Shipped",
+        "cancelled": "Cancelled",
+        "returned": "Returned",
+        "failed": "Failed"
+      }
     },
-    
     "navContent": {
       "usersContent": "User List",
       "productsContent": "Manage Products",
-    
       "ordersContent": "Customer Orders",
       "settingsContent": "System Settings",
       "categoriesContent": "Categories"
     },
-     "actions": {
+    "actions": {
       "add": "Add Category",
-   "edit": "Edit",
-   "save": "Save",
+      "edit": "Edit",
+      "save": "Save",
       "delete": "Delete",
       "addCategory": "Add Category",
       "confirmDeleteCategory": "Are you sure you want to delete this category?"
-  },
-  "messages": {
+    },
+    "messages": {
       "confirmDelete": "Are you sure you want to delete this category?",
       "enterCategoryName": "Enter new category name:",
       "editDisabled": "Edit function is disabled in this demo."
     },
-  
     "addProduct": "Add Product"
   },
   "usersPage": {
@@ -317,7 +334,7 @@
     "close": "Close",
     "modalTitle": "User Details"
   },
-  "Products": {
+  "products": {
     "title": "Makeup Products",
     "add_product": "Add New Product",
     "name": "Product Name",
@@ -329,6 +346,31 @@
     "sizes": "Sizes",
     "submit": "Add Product",
     "edit": "Edit",
-    "available_quantity": "Available Quantity"
+    "available_quantity": "Available Quantity",
+    "products_title": "Products",
+    "product_name": "Product Name",
+    "product_price": "Product Price",
+    "edit_product": "Edit Product",
+    "update_product": "Update Product",
+    "available_stock": "Available Stock",
+    "details": "Details",
+    "fill_all_fields": "Please fill all required fields",
+    "upload_image": "Upload Image",
+    "choose_file": "Choose File",
+    "image_preview": "Image Preview"
+  },
+  "NotFound": {
+    "title": "Page Not Found",
+    "description": "Sorry, the page you are looking for does not exist.",
+    "goHome": "Go to Home"
+  },
+  "Reviews": {
+    "title": "Reviews",
+    "writeReview": "Write your Review",
+    "writeReviewTitle": "What do you think about this product?",
+    "writeReviewButton": "Write A Review",
+    "monthsAgo": "months ago",
+    "weeksAgo": "weeks ago",
+    "ago": "ago"
   }
 }

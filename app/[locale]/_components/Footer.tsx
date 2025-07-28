@@ -32,7 +32,7 @@ export default  function Footer() {
                             <li><Link  className="text-[#393939] block pb-2.5" href={""}>{t("eye")}</Link></li>
                             <li><Link  className="text-[#393939] block pb-2.5" href={""}>{t("face")}</Link></li>
                             <li><Link  className="text-[#393939] block pb-2.5" href={""}>{t("body")}</Link></li>
-                            <li><Link  className="text-[#393939] block pb-2.5" href={""}>{("lips")}</Link></li>
+                            <li><Link  className="text-[#393939] block pb-2.5" href={""}>{t("lips")}</Link></li>
                             <li><Link  className="text-[#393939] block pb-2.5" href={""}>{t("perfume")}</Link></li>
                         </ul>
                     </div>
@@ -41,7 +41,7 @@ export default  function Footer() {
                         <ul>
                             <li><Link  className="text-[#393939] block pb-2.5" href={""}>{t("about")}</Link></li>
                             <li><Link  className="text-[#393939] block pb-2.5" href={""}>{t("contact")}</Link></li>
-                            <li><Link  className="text-[#393939] block pb-2.5" href={""}>{("privacyPolicy")}</Link></li>
+                            <li><Link  className="text-[#393939] block pb-2.5" href={""}>{t("privacyPolicy")}</Link></li>
                             <li><Link  className="text-[#393939] block pb-2.5" href={""}>{t("refundPolicy")}</Link></li>
                             <li><Link  className="text-[#393939] block pb-2.5" href={""}>{t("shippingPolicy")}</Link></li>
                         </ul>

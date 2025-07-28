@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { motion } from "framer-motion";
 import BestSeller from "./BestSeller";
+import { useTranslations } from "next-intl";
 
 type ReviewsUsers = {
   id: number;
@@ -15,6 +16,7 @@ type ReviewsUsers = {
 
 export default function Reviews() {
   const [active, setActive] = useState(1);
+  const t = useTranslations("Reviews");
 
   const handleActive = (id: number) => setActive(id);
 
@@ -25,9 +27,9 @@ export default function Reviews() {
   ];
 
   const reviewsUsers: ReviewsUsers[] = [
-    { id: 1, name: "Mariam", image: "", rating: 5, date: "2 months ago", description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores non nihil atque. Cum, aliquid commodi praesentium iusto possimus, autem eum, quas doloribus natus veritatis nostrum exercitationem totam sed provident molestiae." },
-    { id: 2, name: "Huda", image: "", rating: 3, date: "1 month ago", description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores non nihil atque. Cum, aliquid commodi praesentium iusto possimus, autem eum, quas doloribus natus veritatis nostrum exercitationem totam sed provident molestiae." },
-    { id: 3, name: "Salma", image: "", rating: 4, date: "3 weeks ago", description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores non nihil atque. Cum, aliquid commodi praesentium iusto possimus, autem eum, quas doloribus natus veritatis nostrum exercitationem totam sed provident molestiae." }
+    { id: 1, name: "Mariam", image: "", rating: 5, date: `2 ${t("monthsAgo")}`, description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores non nihil atque. Cum, aliquid commodi praesentium iusto possimus, autem eum, quas doloribus natus veritatis nostrum exercitationem totam sed provident molestiae." },
+    { id: 2, name: "Huda", image: "", rating: 3, date: `1 ${t("monthsAgo")}`, description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores non nihil atque. Cum, aliquid commodi praesentium iusto possimus, autem eum, quas doloribus natus veritatis nostrum exercitationem totam sed provident molestiae." },
+    { id: 3, name: "Salma", image: "", rating: 4, date: `3 ${t("weeksAgo")}`, description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores non nihil atque. Cum, aliquid commodi praesentium iusto possimus, autem eum, quas doloribus natus veritatis nostrum exercitationem totam sed provident molestiae." }
   ];
 
   
@@ -61,7 +63,7 @@ export default function Reviews() {
       className="py-20"
     >
       <div className="text-center">
-        <h3 className="mb-6 text-[#0B0806] font-medium text-3xl">Reviews</h3>
+        <h3 className="mb-6 text-[#0B0806] font-medium text-3xl">{t("title")}</h3>
         <div className="flex justify-center items-center">
           {reviewNums.map((item) => (
             <span
@@ -108,10 +110,10 @@ export default function Reviews() {
     </motion.section>
     <motion.div>
         <div className="m-auto lg:w-[75%] w-full">
-            <h2 className="text-[#393939] text-3xl font-medium text-center mb-4">Write your Review</h2>
+            <h2 className="text-[#393939] text-3xl font-medium text-center mb-4">{t("writeReview")}</h2>
             <div className="px-9 py-2 bg-white h-auto lg:h-16 lg:gap-0 gap-4 flex items-center lg:flex-rwo flex-col">
-                <p className="text-[#868686] flex lg:basis-[35%] basis-full">What do you think about this product ? </p>
-                <button className="rounded-sm cursor-pointer text-[#393939] bg-[#FE93B9] h-14 px-9 py-2 lg:basis-[65%] basis-full">Write A Review</button>
+                <p className="text-[#868686] flex lg:basis-[35%] basis-full">{t("writeReviewTitle")}</p>
+                <button className="rounded-sm cursor-pointer text-[#393939] bg-[#FE93B9] h-14 px-9 py-2 lg:basis-[65%] basis-full">{t("writeReviewButton")}</button>
             </div>
         </div>
     </motion.div>

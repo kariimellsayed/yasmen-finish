@@ -1,8 +1,8 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import NavDashboard from "../_components/navDashboard";
 import { ReactNode } from "react";
+import NavDashboard from "../_components/navDashboard";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   const locale = useLocale();
