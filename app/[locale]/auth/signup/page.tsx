@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaCheck } from "react-icons/fa6";
+import { FaSquarePhone , FaLocationDot} from "react-icons/fa6";
+
 
 export default function SignupPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -149,7 +151,7 @@ export default function SignupPage() {
       {/* Phone Number */}
       <div className="relative flex items-center border border-[#FE93B9] rounded-md overflow-hidden">
         <span className="absolute h-full bg-[#FE93B9] px-2 left-0 flex justify-center items-center">
-          <Image src={"/phone.svg"} width={20} height={20} alt="phone" />
+          <FaSquarePhone className="w-5 h-5 text-white" />
         </span>
         <input
           type="tel"
@@ -165,7 +167,7 @@ export default function SignupPage() {
       {/* Address */}
       <div className="relative flex items-center border border-[#FE93B9] rounded-md overflow-hidden">
         <span className="absolute h-full bg-[#FE93B9] px-2 left-0 flex justify-center items-center">
-          <Image src={"/location.svg"} width={20} height={20} alt="address" />
+          <FaLocationDot className="w-5 h-5 text-white"/>
         </span>
         <input
           type="text"
