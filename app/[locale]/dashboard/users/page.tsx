@@ -1,34 +1,44 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { useParams } from "next/navigation";
+import axiosInstance from "@/lib/axios";
 
 interface User {
-  id: number;
-  name: string;
+  id: string;
+  firstName: string;
+  lastName: string;
+  userName: string;
   email: string;
-  active: boolean;
-  isAdmin: boolean;
 }
-
-const dummyUsers: User[] = [
-  { id: 1, name: "أحمد علي", email: "ahmed@example.com", active: true, isAdmin: false },
-  { id: 2, name: "منى محمد", email: "mona@example.com", active: false, isAdmin: true },
-];
 
 export default function Users() {
   const t = useTranslations("dashboard.users");
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
+  const [users, setUsers] = useState<User[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
   const { locale } = useParams();
   const isRTL = locale === "ar";
 
   const handleEdit = (user: User) => setSelectedUser(user);
   const handleCloseModal = () => setSelectedUser(null);
-  const toggleAdmin = () => {
-    setSelectedUser((prev: User | null) => prev ? { ...prev, isAdmin: !prev.isAdmin } : null);
+
+  const getAllUsers = () => {
+    setLoading(true);
+    axiosInstance
+      .get("Account/GetAllUsers")
+      .then((res) => {
+        setUsers(res.data);
+      })
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
   };
+
+  useEffect(() => {
+    getAllUsers();
+  }, []);
 
   return (
     <motion.section
@@ -41,31 +51,39 @@ export default function Users() {
       <h1 className="text-2xl font-bold text-black">{t("title")}</h1>
 
       <div className="overflow-x-auto bg-white rounded-xl shadow-md">
-        <table className="min-w-full text-sm text-black">
-          <thead className="bg-[#f3e3e9]">
-            <tr>
-              <th className="px-6 py-4">{t("name")}</th>
-              <th className="px-6 py-4">{t("email")}</th>
-              <th className="px-6 py-4">{t("actions")}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {dummyUsers.map((user) => (
-              <tr key={user.id} className="border-t hover:bg-gray-50">
-                <td className="px-6 py-4">{user.name}</td>
-                <td className="px-6 py-4">{user.email}</td>
-                <td className="px-6 py-4">
-                  <button
-                    onClick={() => handleEdit(user)}
-                    className="text-blue-600 hover:underline text-xs"
-                  >
-                    {t("details")}
-                  </button>
-                </td>
+        {loading ? (
+          <div className="w-full flex justify-center items-center">
+            <div className="w-10 h-10 border-4 border-pink-400 border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        ) : (
+          <table className="min-w-full text-sm text-black">
+            <thead className="bg-[#f3e3e9]">
+              <tr>
+                <th className="px-6 py-4">{t("name")}</th>
+                <th className="px-6 py-4">{t("email")}</th>
+                <th className="px-6 py-4">{t("actions")}</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {users.map((user) => (
+                <tr key={user.id} className="border-t hover:bg-gray-50">
+                  <td className="px-6 py-4">
+                    {user.firstName} {user.lastName}
+                  </td>
+                  <td className="px-6 py-4">{user.email}</td>
+                  <td className="px-6 py-4">
+                    <button
+                      onClick={() => handleEdit(user)}
+                      className="text-blue-600 hover:underline text-xs"
+                    >
+                      {t("details")}
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
 
       {selectedUser && (
@@ -74,11 +92,19 @@ export default function Users() {
             className="bg-white p-6 rounded-xl shadow-lg w-[90%] max-w-md space-y-4 text-sm text-black"
             dir={isRTL ? "rtl" : "ltr"}
           >
-            <h2 className="text-lg font-semibold border-b pb-2">{t("userDetails")}</h2>
+            <h2 className="text-lg font-semibold border-b pb-2">
+              {t("userDetails")}
+            </h2>
             <div className="space-y-2">
-              <p>👤 {t("name")}: <span className="font-medium">{selectedUser.name}</span></p>
-              <p>📧 {t("email")}: <span className="font-medium">{selectedUser.email}</span></p>
-              <p className="flex items-center justify-between">
+              <p>
+                👤 {t("name")}:{" "}
+                <span className="font-medium">{selectedUser.firstName}</span>
+              </p>
+              <p>
+                📧 {t("email")}:{" "}
+                <span className="font-medium">{selectedUser.email}</span>
+              </p>
+              {/* <p className="flex items-center justify-between">
                 🛡️ {t("role")}:
                 <button
                   onClick={toggleAdmin}
@@ -88,16 +114,16 @@ export default function Users() {
                 >
                   {selectedUser.isAdmin ? t("admin") : t("user")}
                 </button>
-              </p>
+              </p> */}
             </div>
 
-            <div className="flex flex-wrap gap-2 pt-4 border-t pt-3 justify-end">
+            <div className="flex flex-wrap gap-2 pt-4 border-t justify-end">
               <button className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600">
                 {t("delete")}
               </button>
               <button
                 onClick={handleCloseModal}
-                className="text-gray-500 hover:text-black underline px-3"
+                className="text-gray-500 hover:text-black underline px-3 cursor-pointer"
               >
                 {t("close")}
               </button>

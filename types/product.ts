@@ -13,7 +13,6 @@ export interface Product {
 }
 
 // Product Details
-
 export interface ProductDetails {
   id: number;
   name: string;
